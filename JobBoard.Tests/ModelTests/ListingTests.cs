@@ -30,5 +30,13 @@ namespace JobBoard.Tests
       newListing.Title = listingTitle;
       Assert.AreEqual(listingTitle, newListing.Title);
     }
+
+    [TestMethod]
+    public void GetDescription_GetsValueOfDescription_String()
+    {
+      Listing newListing = new Listing();
+      string listingDescription = newListing.Description;
+      Assert.AreEqual(listingDescription, newListing.Description);
+    }
   }
 }
