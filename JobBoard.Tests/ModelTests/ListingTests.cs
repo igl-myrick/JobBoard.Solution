@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JobBoard.Models;
 using System;
+using System.Collections.Generic;
 
 namespace JobBoard.Tests
 {
@@ -46,6 +47,15 @@ namespace JobBoard.Tests
       string listingDescription = "Job Description";
       newListing.Description = listingDescription;
       Assert.AreEqual(listingDescription, newListing.Description);
+    }
+
+    [TestMethod]
+    public void GetRequirements_GetsValueOfRequirements_List()
+    {
+      Listing newListing = new Listing();
+      List<string> listingRequirements = new List<string> ();
+      listingRequirements = newListing.Requirements;
+      Assert.AreEqual(listingRequirements, newListing.Requirements);
     }
   }
 }
