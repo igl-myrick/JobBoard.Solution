@@ -6,6 +6,6 @@ namespace JobBoard.Models
   {
     public string Title { get; set; }
     public string Description { get; set; }
-    public List<string> Requirements { get; }
+    public List<string> Requirements { get; set; }
   }
 }
