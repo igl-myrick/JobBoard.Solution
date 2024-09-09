@@ -57,5 +57,17 @@ namespace JobBoard.Tests
       listingRequirements = newListing.Requirements;
       Assert.AreEqual(listingRequirements, newListing.Requirements);
     }
+
+    [TestMethod]
+    public void SetRequirements_SetsValueOfRequirements_List()
+    {
+      Listing newListing = new Listing();
+      List<string> listingRequirements = new List<string> ();
+      listingRequirements.Add("Job Requirement 1");
+      listingRequirements.Add("Job Requirement 2");
+      listingRequirements.Add("Job Requirement 3");
+      newListing.Requirements = listingRequirements;
+      Assert.AreEqual(listingRequirements, newListing.Requirements);
+    }
   }
 }
