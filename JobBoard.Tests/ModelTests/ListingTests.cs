@@ -38,5 +38,14 @@ namespace JobBoard.Tests
       string listingDescription = newListing.Description;
       Assert.AreEqual(listingDescription, newListing.Description);
     }
+
+    [TestMethod]
+    public void SetDescription_SetsValueOfDescription_String()
+    {
+      Listing newListing = new Listing();
+      string listingDescription = "Job Description";
+      newListing.Description = listingDescription;
+      Assert.AreEqual(listingDescription, newListing.Description);
+    }
   }
 }
