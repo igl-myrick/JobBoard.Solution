@@ -21,5 +21,14 @@ namespace JobBoard.Tests
       string listingTitle = newListing.Title;
       Assert.AreEqual(listingTitle, newListing.Title);
     }
+
+    [TestMethod]
+    public void SetTitle_SetsValueOfTitle_String()
+    {
+      Listing newListing = new Listing();
+      string listingTitle = "Job Listing";
+      newListing.Title = listingTitle;
+      Assert.AreEqual(listingTitle, newListing.Title);
+    }
   }
 }
