@@ -69,5 +69,13 @@ namespace JobBoard.Tests
       newListing.Requirements = listingRequirements;
       Assert.AreEqual(listingRequirements, newListing.Requirements);
     }
+
+    [TestMethod]
+    public void GetContactInfo_GetsValueOfContactInfo_String()
+    {
+      Listing newListing = new Listing();
+      string listingContactInfo = newListing.ContactInfo;
+      Assert.AreEqual(listingContactInfo, newListing.ContactInfo);
+    }
   }
 }
