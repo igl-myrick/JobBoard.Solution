@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JobBoard.Models;
 using System;
-using System.Collections.Generic;
 
 namespace JobBoard.Tests
 {
@@ -11,80 +10,84 @@ namespace JobBoard.Tests
     [TestMethod]
     public void ListingConstructor_CreatesInstanceOfListing_Listing()
     {
-      Listing newListing = new Listing();
+      Listing newListing = new Listing("title", "description", "requirements", "contact info");
       Assert.AreEqual(typeof(Listing), newListing.GetType());
     }
 
     [TestMethod]
     public void GetTitle_GetsValueOfTitle_String()
     {
-      Listing newListing = new Listing();
-      string listingTitle = newListing.Title;
+      string listingTitle = "title";
+      Listing newListing = new Listing("title", "description", "requirements", "contact info");
       Assert.AreEqual(listingTitle, newListing.Title);
     }
 
     [TestMethod]
     public void SetTitle_SetsValueOfTitle_String()
     {
-      Listing newListing = new Listing();
-      string listingTitle = "Job Listing";
-      newListing.Title = listingTitle;
-      Assert.AreEqual(listingTitle, newListing.Title);
+      string listingTitle = "title";
+      Listing newListing = new Listing(listingTitle, "description", "requirements", "contact info");
+      string newTitle = "updated title";
+      newListing.Title = newTitle;
+      string result = newListing.Title;
+      Assert.AreEqual(newTitle, result);
     }
 
     [TestMethod]
     public void GetDescription_GetsValueOfDescription_String()
     {
-      Listing newListing = new Listing();
-      string listingDescription = newListing.Description;
+      string listingDescription = "description";
+      Listing newListing = new Listing("title", "description", "requirements", "contact info");
       Assert.AreEqual(listingDescription, newListing.Description);
     }
 
     [TestMethod]
     public void SetDescription_SetsValueOfDescription_String()
     {
-      Listing newListing = new Listing();
-      string listingDescription = "Job Description";
-      newListing.Description = listingDescription;
-      Assert.AreEqual(listingDescription, newListing.Description);
+      string listingDescription = "description";
+      Listing newListing = new Listing("title", listingDescription, "requirements", "contact info");
+      string newDescription = "updated description";
+      newListing.Description = newDescription;
+      string result = newListing.Description;
+      Assert.AreEqual(newDescription, result);
     }
 
     [TestMethod]
-    public void GetRequirements_GetsValueOfRequirements_List()
+    public void GetRequirements_GetsValueOfRequirements_String()
     {
-      Listing newListing = new Listing();
-      List<string> listingRequirements = new List<string> ();
-      listingRequirements = newListing.Requirements;
+      string listingRequirements = "requirement";
+      Listing newListing = new Listing("title", "description", "requirement", "contact info");
       Assert.AreEqual(listingRequirements, newListing.Requirements);
     }
 
     [TestMethod]
-    public void SetRequirements_SetsValueOfRequirements_List()
+    public void SetRequirements_SetsValueOfRequirements_String()
     {
-      Listing newListing = new Listing();
-      List<string> listingRequirements = new List<string> ();
-      listingRequirements.Add("Job Requirement 1");
-      listingRequirements.Add("Job Requirement 2");
-      listingRequirements.Add("Job Requirement 3");
-      newListing.Requirements = listingRequirements;
-      Assert.AreEqual(listingRequirements, newListing.Requirements);
+      string listingRequirements = "requirement";
+      Listing newListing = new Listing("title", "description", listingRequirements, "contact info");
+      string newRequirements = "updated requirement";
+      newListing.Requirements = newRequirements;
+      string result = newListing.Requirements;
+      Assert.AreEqual(newRequirements, result);
     }
 
     [TestMethod]
     public void GetContactInfo_GetsValueOfContactInfo_String()
     {
-      Listing newListing = new Listing();
-      string listingContactInfo = newListing.ContactInfo;
+      string listingContactInfo = "contact info";
+      Listing newListing = new Listing("title", "description", "requirements", "contact info");
       Assert.AreEqual(listingContactInfo, newListing.ContactInfo);
     }
 
     [TestMethod]
     public void SetContactInfo_SetsValueOfContactInfo_String()
     {
-      Listing newListing = new Listing();
-      string listingContactInfo = "Contact name";
-      newListing.ContactInfo = listingContactInfo;
-      Assert.AreEqual(listingContactInfo, newListing.ContactInfo);
+      string listingContactInfo = "contact info";
+      Listing newListing = new Listing("title", "description", "requirements", listingContactInfo);
+      string newContactInfo = "updated contact info";
+      newListing.ContactInfo = newContactInfo;
+      string result = newListing.ContactInfo;
+      Assert.AreEqual(newContactInfo, result);
     }
   }
 }
