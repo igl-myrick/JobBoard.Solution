@@ -1,12 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JobBoard.Models;
 using System;
+using System.Collections.Generic;
 
 namespace JobBoard.Tests
 {
   [TestClass]
-  public class ListingTests
+  public class ListingTests : IDisposable
   {
+
+    public void Dispose()
+    {
+      Listing.ClearAll();
+    }
+
     [TestMethod]
     public void ListingConstructor_CreatesInstanceOfListing_Listing()
     {
@@ -88,6 +95,18 @@ namespace JobBoard.Tests
       newListing.ContactInfo = newContactInfo;
       string result = newListing.ContactInfo;
       Assert.AreEqual(newContactInfo, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsListings_List()
+    {
+      Listing newListing1 = new Listing("title 1", "description 1", "requirements 1", "contact info 1");
+      Listing newListing2 = new Listing("title 2", "description 2", "requirements 2", "contact info 2");
+      List<Listing> newList = new List<Listing> { newListing1, newListing2 };
+
+      List<Listing> result = Listing.GetAll();
+      
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
